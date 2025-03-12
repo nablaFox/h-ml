@@ -1,14 +1,30 @@
 module ML.Model where
 
-type TrainingSet a b = [(a, b)]
+type Loss h z = h -> z -> Double
 
-type Trainer m a b = m -> TrainingSet a b -> m
+data Model h z = Model {predict :: h, loss :: z -> Double}
 
-class Model m a b where
-  train :: m -> TrainingSet a b -> Trainer m a b -> m
-  train m set f = f m set
-  loss :: m -> TrainingSet a b -> Double
-  predict :: m -> a -> b
+newModel :: h -> Loss h z -> Model h z
+newModel h l = Model h (l h)
 
-mse :: (Num a, Num b) => TrainingSet a b -> b
-mse = undefined
+objective :: Model h z -> [z] -> Double
+objective model env = sum $ map (loss model) env
+
+-- supervised learning
+type SupervisedModel a b = Model (a -> b) (a, b)
+
+-- (hyper-parameters, loss function, training set) -> (model, learned-parameters, objective)
+type SupervisedTrainerWithLoss hp lp a b = hp -> Loss (a -> b) (a, b) -> [(a, b)] -> (SupervisedModel a b, lp, Double)
+
+type SupervisedTrainer hp lp a b = hp -> [(a, b)] -> (SupervisedModel a b, lp, Double)
+
+makePredictions :: SupervisedModel a b -> [a] -> [(a, b)]
+makePredictions model = map (\d -> (d, predict model d))
+
+trainedModel :: SupervisedModel a b -> lp -> [(a, b)] -> (SupervisedModel a b, lp, Double)
+trainedModel model params trset = (model, params, objective model trset)
+
+se :: (Num b, Real b) => Loss (a -> b) (a, b)
+se h (x, y) =
+  let diff = h x - y
+   in realToFrac (diff * diff)
