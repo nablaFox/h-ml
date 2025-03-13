@@ -1,4 +1,4 @@
-module ML.Model where
+module Model where
 
 type Hypothesis a b = a -> b
 

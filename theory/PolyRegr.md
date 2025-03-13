@@ -1,7 +1,12 @@
-module Main (main) where
+## Polynomial Regression
 
-import ML.PolyRegr (trainWithNormalEq)
-import ML.Model (showPredictions)
+WIP.
+
+### Usage Example
+
+```hs
+import PolyRegr (trainWithNormalEq)
+import Model (showPredictions)
 import Utils.Math (gaussian)
 
 main :: IO ()
@@ -18,3 +23,4 @@ main = do
   writeFile "predictions.txt" (showPredictions model [0,0.01..1.2])
 
   putStrLn "Predictions saved to predictions.txt"
+```

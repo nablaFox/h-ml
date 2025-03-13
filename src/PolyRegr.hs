@@ -1,6 +1,6 @@
-module ML.PolyRegr where
+module PolyRegr where
 
-import ML.Model
+import Model
 import Utils.Matrix
 
 designMatrix :: (Num a) => Int -> [a] -> Matrix a

@@ -58,15 +58,15 @@ multiply :: (Num a) => Matrix a -> Matrix a -> Matrix a
 multiply m1 m2 = matrix [[r `dotList` c | c <- cols m2] | r <- rows m1]
 
 instance (Num a) => Num (Matrix a) where
-  (+) = undefined -- temp
+  (+) = undefined -- TEMP
   (*) = multiply
-  (-) = undefined -- temp
+  (-) = undefined -- TEMP
 
   abs = undefined
   signum = undefined
   fromInteger = undefined
 
--- Currently implemented by GPT; I'll get to this soon
+-- TEMP: Currently implemented by GPT; I'll get to this soon
 
 invert :: (Fractional a, Eq a) => Matrix a -> Matrix a
 invert m
