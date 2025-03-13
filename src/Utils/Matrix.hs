@@ -57,9 +57,6 @@ dot m1 m2 = rows (m1 * m2) !! 0 !! 0
 multiply :: (Num a) => Matrix a -> Matrix a -> Matrix a
 multiply m1 m2 = matrix [[r `dotList` c | c <- cols m2] | r <- rows m1]
 
-norm :: (Floating a) => Matrix a -> a
-norm m = sqrt $ sum $ map (^ 2) (rows m !! 0)
-
 instance (Num a) => Num (Matrix a) where
   (+) = undefined -- temp
   (*) = multiply
