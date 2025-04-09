@@ -66,7 +66,7 @@ instance (Num a) => Num (Matrix a) where
   signum = undefined
   fromInteger = undefined
 
--- TEMP: Currently implemented by GPT; I'll get to this soon
+-- TEMP: Currently implemented by GPT-o3; I'll get to this soon
 
 invert :: (Fractional a, Eq a) => Matrix a -> Matrix a
 invert m

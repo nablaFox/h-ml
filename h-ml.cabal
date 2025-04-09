@@ -18,7 +18,7 @@ library
                         Model
     other-modules:      Utils.Matrix
                         Utils.Math
-					              Utils.KDTree
+                        Utils.Data
     build-depends:      base ^>=4.17.2.1, random ^>=1.2
     hs-source-dirs:     src
     default-language:   Haskell2010
