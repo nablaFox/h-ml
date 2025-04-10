@@ -8,14 +8,14 @@ of Trento (2024/2025).
 
 Each algorithm implemented in this library is organized into 3 files:
 
-- `src/Algorithm.hs`: implementation code
-- `example/Algorithm.hs`: usage example
-- `theory/Algorithm.md`: mathematical derivation, explanations, proofs
+- `src/AlgorithmName.hs`: implementation code
+- `theory/AlgorithmName.md`: mathematical derivation, explanations, proofs
+- `example/algorithm-name.hs`: usage example
 
 To run the examples:
 
 ```bash
-cabal run Algorithm
+cabal run algorithm-name
 ```
 
 ### Core Foundations

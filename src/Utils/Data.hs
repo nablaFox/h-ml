@@ -16,5 +16,5 @@ createKDTree depth xs = Node ax m (createKDTree newDepth left) (createKDTree new
     ax = depth `mod` length (fst (head xs))
     m = median (map (\x -> fst x !! ax) xs)
     left = filter (\(x, _) -> x !! ax < m) xs
-    right = filter (\(x, _) -> x !! ax >= m) xs
+    right = filter (\(x, _) -> x !! ax > m) xs
     newDepth = depth + 1
