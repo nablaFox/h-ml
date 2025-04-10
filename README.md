@@ -27,8 +27,8 @@ Formal definitions and theoretical basis for all implementations \
 
 **Polynomial Regression** \
 Non-linear regression through polynomial basis expansion \
-[Source](src/PolyRegr.hs) • [Theory](theory/PolyRegr.md) • [Example](examples/PolyRegr.hs)
+[Source](src/PolyRegr.hs) • [Theory](theory/PolyRegr.md) • [Example](examples/poly-regr.hs)
 
 **k-Nearest Neighbors** \
 Non parametric classifier \
-[Source](src/KNN.hs) • [Theory](theory/KNN.md) • [Example](examples/KNN.hs)
+[Source](src/KNN.hs) • [Theory](theory/KNN.md) • [Example](examples/knn.hs)
